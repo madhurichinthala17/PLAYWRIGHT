@@ -17,6 +17,8 @@ test.describe('Asana Data-Driven Tests', () => {
             });
 
             await test.step(`Navigate to the project page - ${data.id}`, async () => {
+
+                await page.waitForSelector(`text='${data.leftNav}'`, { state: 'visible' });
                 await page.click(`text='${data.leftNav}'`);
                 const boardBodies = await page.$$('.AsanaMain'); 
                 const project = await page.$$('.AsanaMain-asanaPageAndTopbar');
